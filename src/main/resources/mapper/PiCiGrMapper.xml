@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.perfect.mapper.PiCiGrMapper">
+    <resultMap id="BaseResultMap" type="com.perfect.entity.PiCiGr">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="syscode" property="syscode" jdbcType="VARCHAR"/>
+        <result column="sjbbh" property="sjbbh" jdbcType="VARCHAR"/>
+        <result column="sjblx" property="sjblx" jdbcType="VARCHAR"/>
+        <result column="scsjl" property="scsjl" jdbcType="INTEGER"/>
+        <result column="scrq" property="scrq" jdbcType="DATE"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="success" property="success" jdbcType="VARCHAR"/>
+        <result column="wbjjgbm" property="wbjjgbm" jdbcType="VARCHAR"/>
+        <result column="tbdw" property="tbdw" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, syscode, sjbbh, sjblx, scsjl, scrq, remark, success, wbjjgbm, tbdw
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.perfect.entity.PiCiGrExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from pxbtxt_pici_gr
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from pxbtxt_pici_gr
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from pxbtxt_pici_gr
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.perfect.entity.PiCiGrExample">
+        delete from pxbtxt_pici_gr
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.perfect.entity.PiCiGr">
+        insert into pxbtxt_pici_gr (id, syscode, sjbbh,
+        sjblx, scsjl, scrq, remark,
+        success, wbjjgbm, tbdw
+        )
+        values (#{id,jdbcType=BIGINT}, #{syscode,jdbcType=VARCHAR}, #{sjbbh,jdbcType=VARCHAR},
+        #{sjblx,jdbcType=VARCHAR}, #{scsjl,jdbcType=INTEGER}, #{scrq,jdbcType=DATE}, #{remark,jdbcType=VARCHAR},
+        #{success,jdbcType=VARCHAR}, #{wbjjgbm,jdbcType=VARCHAR}, #{tbdw,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.perfect.entity.PiCiGr">
+        insert into pxbtxt_pici_gr
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="syscode != null">
+                syscode,
+            </if>
+            <if test="sjbbh != null">
+                sjbbh,
+            </if>
+            <if test="sjblx != null">
+                sjblx,
+            </if>
+            <if test="scsjl != null">
+                scsjl,
+            </if>
+            <if test="scrq != null">
+                scrq,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="success != null">
+                success,
+            </if>
+            <if test="wbjjgbm != null">
+                wbjjgbm,
+            </if>
+            <if test="tbdw != null">
+                tbdw,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="syscode != null">
+                #{syscode,jdbcType=VARCHAR},
+            </if>
+            <if test="sjbbh != null">
+                #{sjbbh,jdbcType=VARCHAR},
+            </if>
+            <if test="sjblx != null">
+                #{sjblx,jdbcType=VARCHAR},
+            </if>
+            <if test="scsjl != null">
+                #{scsjl,jdbcType=INTEGER},
+            </if>
+            <if test="scrq != null">
+                #{scrq,jdbcType=DATE},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="success != null">
+                #{success,jdbcType=VARCHAR},
+            </if>
+            <if test="wbjjgbm != null">
+                #{wbjjgbm,jdbcType=VARCHAR},
+            </if>
+            <if test="tbdw != null">
+                #{tbdw,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByExampleSelective" parameterType="map">
+        update pxbtxt_pici_gr
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.syscode != null">
+                syscode = #{record.syscode,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sjbbh != null">
+                sjbbh = #{record.sjbbh,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sjblx != null">
+                sjblx = #{record.sjblx,jdbcType=VARCHAR},
+            </if>
+            <if test="record.scsjl != null">
+                scsjl = #{record.scsjl,jdbcType=INTEGER},
+            </if>
+            <if test="record.scrq != null">
+                scrq = #{record.scrq,jdbcType=DATE},
+            </if>
+            <if test="record.remark != null">
+                remark = #{record.remark,jdbcType=VARCHAR},
+            </if>
+            <if test="record.success != null">
+                success = #{record.success,jdbcType=VARCHAR},
+            </if>
+            <if test="record.wbjjgbm != null">
+                wbjjgbm = #{record.wbjjgbm,jdbcType=VARCHAR},
+            </if>
+            <if test="record.tbdw != null">
+                tbdw = #{record.tbdw,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update pxbtxt_pici_gr
+        set id = #{record.id,jdbcType=BIGINT},
+        syscode = #{record.syscode,jdbcType=VARCHAR},
+        sjbbh = #{record.sjbbh,jdbcType=VARCHAR},
+        sjblx = #{record.sjblx,jdbcType=VARCHAR},
+        scsjl = #{record.scsjl,jdbcType=INTEGER},
+        scrq = #{record.scrq,jdbcType=DATE},
+        remark = #{record.remark,jdbcType=VARCHAR},
+        success = #{record.success,jdbcType=VARCHAR},
+        wbjjgbm = #{record.wbjjgbm,jdbcType=VARCHAR},
+        tbdw = #{record.tbdw,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.perfect.entity.PiCiGr">
+        update pxbtxt_pici_gr
+        <set>
+            <if test="syscode != null">
+                syscode = #{syscode,jdbcType=VARCHAR},
+            </if>
+            <if test="sjbbh != null">
+                sjbbh = #{sjbbh,jdbcType=VARCHAR},
+            </if>
+            <if test="sjblx != null">
+                sjblx = #{sjblx,jdbcType=VARCHAR},
+            </if>
+            <if test="scsjl != null">
+                scsjl = #{scsjl,jdbcType=INTEGER},
+            </if>
+            <if test="scrq != null">
+                scrq = #{scrq,jdbcType=DATE},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="success != null">
+                success = #{success,jdbcType=VARCHAR},
+            </if>
+            <if test="wbjjgbm != null">
+                wbjjgbm = #{wbjjgbm,jdbcType=VARCHAR},
+            </if>
+            <if test="tbdw != null">
+                tbdw = #{tbdw,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.perfect.entity.PiCiGr">
+        update pxbtxt_pici_gr
+        set syscode = #{syscode,jdbcType=VARCHAR},
+        sjbbh = #{sjbbh,jdbcType=VARCHAR},
+        sjblx = #{sjblx,jdbcType=VARCHAR},
+        scsjl = #{scsjl,jdbcType=INTEGER},
+        scrq = #{scrq,jdbcType=DATE},
+        remark = #{remark,jdbcType=VARCHAR},
+        success = #{success,jdbcType=VARCHAR},
+        wbjjgbm = #{wbjjgbm,jdbcType=VARCHAR},
+        tbdw = #{tbdw,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.perfect.mapper.HuaMmingCeGrMapper">
+    <resultMap id="BaseResultMap" type="com.perfect.entity.HuaMmingCeGr">
+        <result column="sjbh" property="sjbh" jdbcType="VARCHAR"/>
+        <result column="xm" property="xm" jdbcType="VARCHAR"/>
+        <result column="xb" property="xb" jdbcType="VARCHAR"/>
+        <result column="sfzh" property="sfzh" jdbcType="VARCHAR"/>
+        <result column="sjh" property="sjh" jdbcType="VARCHAR"/>
+        <result column="hjxz" property="hjxz" jdbcType="VARCHAR"/>
+        <result column="hjszd" property="hjszd" jdbcType="VARCHAR"/>
+        <result column="ldhtqssj" property="ldhtqssj" jdbcType="VARCHAR"/>
+        <result column="ldhtjssj" property="ldhtjssj" jdbcType="VARCHAR"/>
+        <result column="btzclx" property="btzclx" jdbcType="VARCHAR"/>
+        <result column="btdxlx" property="btdxlx" jdbcType="VARCHAR"/>
+        <result column="btdxmc" property="btdxmc" jdbcType="VARCHAR"/>
+        <result column="tyshxydm" property="tyshxydm" jdbcType="VARCHAR"/>
+        <result column="pxzyxm" property="pxzyxm" jdbcType="VARCHAR"/>
+        <result column="pxdj" property="pxdj" jdbcType="VARCHAR"/>
+        <result column="pxks" property="pxks" jdbcType="VARCHAR"/>
+        <result column="pxksrq" property="pxksrq" jdbcType="VARCHAR"/>
+        <result column="pxjsrq" property="pxjsrq" jdbcType="VARCHAR"/>
+        <result column="zslx" property="zslx" jdbcType="VARCHAR"/>
+        <result column="fzsj" property="fzsj" jdbcType="VARCHAR"/>
+        <result column="zsbh" property="zsbh" jdbcType="VARCHAR"/>
+        <result column="zszygz" property="zszygz" jdbcType="VARCHAR"/>
+        <result column="zsdj" property="zsdj" jdbcType="VARCHAR"/>
+        <result column="btje" property="btje" jdbcType="VARCHAR"/>
+        <result column="sjbbh" property="sjbbh" jdbcType="VARCHAR"/>
+        <result column="ryzt" property="ryzt" jdbcType="VARCHAR"/>
+        <result column="isdel" property="isdel" jdbcType="VARCHAR"/>
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="wbjjgbm" property="wbjjgbm" jdbcType="VARCHAR"/>
+        <result column="tjsj" property="tjsj" jdbcType="VARCHAR"/>
+        <result column="zjsqbSjbbh" property="zjsqbsjbbh" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.perfect.entity.HuaMmingCeGr">
+        insert into pxbtxt_huamingce_gr (sjbh, xm, xb,
+        sfzh, sjh, hjxz, hjszd,
+        ldhtqssj, ldhtjssj, btzclx,
+        btdxlx, btdxmc, tyshxydm,
+        pxzyxm, pxdj, pxks,
+        pxksrq, pxjsrq, zslx,
+        fzsj, zsbh, zszygz,
+        zsdj, btje, sjbbh,
+        ryzt, isdel, id, wbjjgbm,
+        tjsj, zjsqbSjbbh)
+        values (#{sjbh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{xb,jdbcType=VARCHAR},
+        #{sfzh,jdbcType=VARCHAR}, #{sjh,jdbcType=VARCHAR}, #{hjxz,jdbcType=VARCHAR}, #{hjszd,jdbcType=VARCHAR},
+        #{ldhtqssj,jdbcType=VARCHAR}, #{ldhtjssj,jdbcType=VARCHAR}, #{btzclx,jdbcType=VARCHAR},
+        #{btdxlx,jdbcType=VARCHAR}, #{btdxmc,jdbcType=VARCHAR}, #{tyshxydm,jdbcType=VARCHAR},
+        #{pxzyxm,jdbcType=VARCHAR}, #{pxdj,jdbcType=VARCHAR}, #{pxks,jdbcType=VARCHAR},
+        #{pxksrq,jdbcType=VARCHAR}, #{pxjsrq,jdbcType=VARCHAR}, #{zslx,jdbcType=VARCHAR},
+        #{fzsj,jdbcType=VARCHAR}, #{zsbh,jdbcType=VARCHAR}, #{zszygz,jdbcType=VARCHAR},
+        #{zsdj,jdbcType=VARCHAR}, #{btje,jdbcType=VARCHAR}, #{sjbbh,jdbcType=VARCHAR},
+        #{ryzt,jdbcType=VARCHAR}, #{isdel,jdbcType=VARCHAR}, #{id,jdbcType=BIGINT}, #{wbjjgbm,jdbcType=VARCHAR},
+        #{tjsj,jdbcType=VARCHAR}, #{zjsqbsjbbh,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.perfect.entity.HuaMmingCeGr">
+        insert into pxbtxt_huamingce_gr
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sjbh != null">
+                sjbh,
+            </if>
+            <if test="xm != null">
+                xm,
+            </if>
+            <if test="xb != null">
+                xb,
+            </if>
+            <if test="sfzh != null">
+                sfzh,
+            </if>
+            <if test="sjh != null">
+                sjh,
+            </if>
+            <if test="hjxz != null">
+                hjxz,
+            </if>
+            <if test="hjszd != null">
+                hjszd,
+            </if>
+            <if test="ldhtqssj != null">
+                ldhtqssj,
+            </if>
+            <if test="ldhtjssj != null">
+                ldhtjssj,
+            </if>
+            <if test="btzclx != null">
+                btzclx,
+            </if>
+            <if test="btdxlx != null">
+                btdxlx,
+            </if>
+            <if test="btdxmc != null">
+                btdxmc,
+            </if>
+            <if test="tyshxydm != null">
+                tyshxydm,
+            </if>
+            <if test="pxzyxm != null">
+                pxzyxm,
+            </if>
+            <if test="pxdj != null">
+                pxdj,
+            </if>
+            <if test="pxks != null">
+                pxks,
+            </if>
+            <if test="pxksrq != null">
+                pxksrq,
+            </if>
+            <if test="pxjsrq != null">
+                pxjsrq,
+            </if>
+            <if test="zslx != null">
+                zslx,
+            </if>
+            <if test="fzsj != null">
+                fzsj,
+            </if>
+            <if test="zsbh != null">
+                zsbh,
+            </if>
+            <if test="zszygz != null">
+                zszygz,
+            </if>
+            <if test="zsdj != null">
+                zsdj,
+            </if>
+            <if test="btje != null">
+                btje,
+            </if>
+            <if test="sjbbh != null">
+                sjbbh,
+            </if>
+            <if test="ryzt != null">
+                ryzt,
+            </if>
+            <if test="isdel != null">
+                isdel,
+            </if>
+            <if test="id != null">
+                id,
+            </if>
+            <if test="wbjjgbm != null">
+                wbjjgbm,
+            </if>
+            <if test="tjsj != null">
+                tjsj,
+            </if>
+            <if test="zjsqbsjbbh != null">
+                zjsqbSjbbh,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sjbh != null">
+                #{sjbh,jdbcType=VARCHAR},
+            </if>
+            <if test="xm != null">
+                #{xm,jdbcType=VARCHAR},
+            </if>
+            <if test="xb != null">
+                #{xb,jdbcType=VARCHAR},
+            </if>
+            <if test="sfzh != null">
+                #{sfzh,jdbcType=VARCHAR},
+            </if>
+            <if test="sjh != null">
+                #{sjh,jdbcType=VARCHAR},
+            </if>
+            <if test="hjxz != null">
+                #{hjxz,jdbcType=VARCHAR},
+            </if>
+            <if test="hjszd != null">
+                #{hjszd,jdbcType=VARCHAR},
+            </if>
+            <if test="ldhtqssj != null">
+                #{ldhtqssj,jdbcType=VARCHAR},
+            </if>
+            <if test="ldhtjssj != null">
+                #{ldhtjssj,jdbcType=VARCHAR},
+            </if>
+            <if test="btzclx != null">
+                #{btzclx,jdbcType=VARCHAR},
+            </if>
+            <if test="btdxlx != null">
+                #{btdxlx,jdbcType=VARCHAR},
+            </if>
+            <if test="btdxmc != null">
+                #{btdxmc,jdbcType=VARCHAR},
+            </if>
+            <if test="tyshxydm != null">
+                #{tyshxydm,jdbcType=VARCHAR},
+            </if>
+            <if test="pxzyxm != null">
+                #{pxzyxm,jdbcType=VARCHAR},
+            </if>
+            <if test="pxdj != null">
+                #{pxdj,jdbcType=VARCHAR},
+            </if>
+            <if test="pxks != null">
+                #{pxks,jdbcType=VARCHAR},
+            </if>
+            <if test="pxksrq != null">
+                #{pxksrq,jdbcType=VARCHAR},
+            </if>
+            <if test="pxjsrq != null">
+                #{pxjsrq,jdbcType=VARCHAR},
+            </if>
+            <if test="zslx != null">
+                #{zslx,jdbcType=VARCHAR},
+            </if>
+            <if test="fzsj != null">
+                #{fzsj,jdbcType=VARCHAR},
+            </if>
+            <if test="zsbh != null">
+                #{zsbh,jdbcType=VARCHAR},
+            </if>
+            <if test="zszygz != null">
+                #{zszygz,jdbcType=VARCHAR},
+            </if>
+            <if test="zsdj != null">
+                #{zsdj,jdbcType=VARCHAR},
+            </if>
+            <if test="btje != null">
+                #{btje,jdbcType=VARCHAR},
+            </if>
+            <if test="sjbbh != null">
+                #{sjbbh,jdbcType=VARCHAR},
+            </if>
+            <if test="ryzt != null">
+                #{ryzt,jdbcType=VARCHAR},
+            </if>
+            <if test="isdel != null">
+                #{isdel,jdbcType=VARCHAR},
+            </if>
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="wbjjgbm != null">
+                #{wbjjgbm,jdbcType=VARCHAR},
+            </if>
+            <if test="tjsj != null">
+                #{tjsj,jdbcType=VARCHAR},
+            </if>
+            <if test="zjsqbsjbbh != null">
+                #{zjsqbsjbbh,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+</mapper>
